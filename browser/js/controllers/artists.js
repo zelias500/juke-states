@@ -3,13 +3,13 @@ app.controller('ArtistsCtrl', function ($scope, $rootScope, ArtistFactory) {
 	.then(function (artists) {
 		$scope.artists = artists;
 	});
-	$rootScope.$on('changeView', function (evt, data) {
-		$scope.showMe = (data.name == 'allArtists');
-	});
+	// $rootScope.$on('changeView', function (evt, data) {
+	// 	$scope.showMe = (data.name == 'allArtists');
+	// });
 	$scope.viewArtist = function (artistId) {
-		$rootScope.$broadcast('changeView', {
-			name: 'oneArtist',
-			id: artistId
-		});
+		// $rootScope.$broadcast('changeView', {
+		// 	name: 'oneArtist',
+		// 	id: artistId
+		// });
 	};
 });
