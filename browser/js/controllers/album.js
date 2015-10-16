@@ -1,4 +1,10 @@
-app.controller('AlbumCtrl', function ($scope, $rootScope, PlayerFactory, AlbumFactory) {
+app.controller('AlbumCtrl', function ($scope, $stateParams, PlayerFactory, AlbumFactory) {
+
+	$scope.album;
+	AlbumFactory.fetchById($stateParams.album)
+		.then(function(album){
+			$scope.album = album;
+		})
 
 	$scope.isCurrent = function (song) {
 		var current = PlayerFactory.getCurrentSong();

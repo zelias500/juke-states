@@ -4,4 +4,10 @@ app.config(function($stateProvider){
 		url: "/albums",
 		controller: "AlbumsCtrl"
 	})
+
+  $stateProvider.state('oneAlbum', {
+    templateUrl: "js/states/albumTemplate.html",
+    url: "/albums/:album",
+    controller: "AlbumCtrl"
+  })
 })
