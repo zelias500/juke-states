@@ -1,16 +1,19 @@
-app.config(function($stateProvider){
-	$stateProvider.state("artists", {
-		templateUrl: "js/states/artistStemplate.html",
-		url: "/artists",
+app.config(function($stateProvider, $urlRouterProvider){
+
+  $stateProvider.state("artists", {
+    templateUrl: "js/states/artistStemplate.html",
+    url: "/artists",
     resolve: {
       artists: function(ArtistFactory){
         return ArtistFactory.fetchAll()
       }
 
     },
-		controller: "ArtistsCtrl"
-	})
+    controller: "ArtistsCtrl"
+  })
 
+  $urlRouterProvider.when("/artists/:artist", "/artists/:artist/albums");
+  
   $stateProvider.state("artist", {
     templateUrl: "js/states/artistTemplate.html",
     url: "/artists/:artist",
