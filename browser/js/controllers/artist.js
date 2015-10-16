@@ -1,20 +1,6 @@
-app.controller('ArtistCtrl', function ($scope, $stateParams, PlayerFactory, ArtistFactory) {
+app.controller('ArtistCtrl', function ($scope, artist, PlayerFactory) {
 	
-
-$scope.artist;
-
-ArtistFactory.fetchById($stateParams.artist)
-	.then(function(artist){
-		$scope.artist = artist;
-})
-
-
-	$scope.viewAlbum = function (albumId) {
-		// $rootScope.$broadcast('changeView', {
-		// 	name: 'oneAlbum',
-		// 	id: albumId
-		// });
-	};
+	$scope.artist = artist;
 
 	$scope.isCurrent = function (song) {
 		var current = PlayerFactory.getCurrentSong();
